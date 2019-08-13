@@ -3,9 +3,16 @@ on: [pull_request, push]
 
 jobs:
   check_pr:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+
     steps:
     - uses: actions/checkout@v1
+
+    - uses: actions/setup-node@v1
 
     - name: "npm ci"
       run: npm ci

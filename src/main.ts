@@ -1,4 +1,5 @@
 import path from 'path';
+import os from 'os';
 
 import * as core from '@actions/core';
 import { exec } from '@actions/exec';
@@ -12,8 +13,7 @@ async function run() {
 
     const flags = preview ? '--preview' : version ? `--version=${version}`: '';
     await exec(`python get-poetry.py --yes ${flags}`)
-    const home = process.env.platform === 'win32' ? process.env.USERPROFILE : process.env.HOME;
-    core.addPath(`${home}${path.sep}.poetry${path.sep}bin`);
+    core.addPath(path.join(os.homedir(), '.poetry', 'bin'));
   } catch (error) {
     core.setFailed(error.message);
   }
