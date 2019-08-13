@@ -4,10 +4,8 @@ author: 'Daniel Schep'
 inputs: 
   version:
     description: 'Version of Poetry to use'
-    default: null
   preview:
     description: 'Use the preview version of Poetry'
-    default: null
 runs:
   using: 'node12'
   main: 'lib/main.js'
