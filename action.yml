@@ -7,7 +7,7 @@ inputs:
     default: null
   preview:
     description: 'Use the preview version of Poetry'
-    default: false
+    default: null
 runs:
   using: 'node12'
   main: 'lib/main.js'

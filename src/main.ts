@@ -10,8 +10,8 @@ async function run() {
 
     await exec('curl -O -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py');
 
-    console.log('preview', preview)
-    console.log('version', version)
+    console.log('preview', typeof preview)
+    console.log('version', typeof version)
     const flags = preview ? '--preview' : version ? `--version=${version}`: '';
     await exec(`python get-poetry.py --yes ${flags}`)
     const home = process.env.platform === 'win32' ? process.env.USERPROFILE : process.env.HOME;
