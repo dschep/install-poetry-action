@@ -9,7 +9,7 @@ async function run() {
     await exec('curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py');
 
     const flags = preview ? '--preview' : version ? `--version=${version}`: '';
-    await exec(`python get-poetry.py ${flags}`)
+    await exec(`python get-poetry.py --yes ${flags}`)
   } catch (error) {
     core.setFailed(error.message);
   }
