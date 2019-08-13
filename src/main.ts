@@ -1,5 +1,7 @@
+import path from 'path';
+
 import * as core from '@actions/core';
-const { exec } = require('@actions/exec');
+import { exec } from '@actions/exec';
 
 async function run() {
   try {
@@ -10,7 +12,8 @@ async function run() {
 
     const flags = preview ? '--preview' : version ? `--version=${version}`: '';
     await exec(`python get-poetry.py --yes ${flags}`)
-    core.addPath(`${process.env.platform === 'win32' ? process.env.USERPROFILE : process.env.HOME}/.poetry/bin`);
+    const home = process.env.platform === 'win32' ? process.env.USERPROFILE : process.env.HOME;
+    core.addPath(`${home}${path.sep}.poetry${path.sep}bin`);
   } catch (error) {
     core.setFailed(error.message);
   }
