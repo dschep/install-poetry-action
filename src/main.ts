@@ -10,7 +10,7 @@ async function run() {
 
     const flags = preview ? '--preview' : version ? `--version=${version}`: '';
     await exec(`python get-poetry.py --yes ${flags}`)
-    core.setPath(`${process.env.platform === 'win32' ? process.env.USERPROFILE : process.env.HOME}/.poetry/bin`);
+    core.addPath(`${process.env.platform === 'win32' ? process.env.USERPROFILE : process.env.HOME}/.poetry/bin`);
   } catch (error) {
     core.setFailed(error.message);
   }
