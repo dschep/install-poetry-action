@@ -1,9 +1,44 @@
-# JavaScript Action Template
+# Github Action to install Poetry
 
-This template offers an easy way to get started writing a javascript action with TypeScript compile time support, unit testing with Jest and using the GitHub Actions Toolkit.
+<p align="left">
+  <a href="https://github.com/dschep/install-poetry-action"><img alt="GitHub Actions status" src="https://github.com/dschep/install-poetry-action/workflows/PR%20Checks/badge.svg"></a>
+</p>
 
-## Getting Started
+This action sets up a poetry for use in actions by:
 
-See the walkthrough located [here](https://github.com/actions/toolkit/blob/master/docs/javascript-action.md).
+- installing a version of poetry and adding to PATH.
 
-In addition to walking your through how to create an action, it also provides strategies for versioning, releasing and referencing your actions.
+# Usage
+
+See [action.yml](action.yml)
+
+Basic:
+```yaml
+steps:
+- uses: actions/checkout@master
+- uses: actions/setup-python@v1
+- uses: actions/poetry@v1
+- run: poetry run my_script.py
+```
+
+With a specific version:
+```yaml
+- uses: actions/poetry@v1
+  with:
+    version: 1.0.0a1
+```
+
+Or use the preview release (not compatible with the `version` option)
+```yaml
+- uses: actions/poetry@v1
+  with:
+    preview: true
+```
+
+# License
+
+The scripts and documentation in this project are released under the [MIT License](LICENSE)
+
+# Contributions
+
+Contributions are welcome!  See [Contributor's Guide](docs/contributors.md)
