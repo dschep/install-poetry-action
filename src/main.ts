@@ -1,5 +1,5 @@
 import * as core from '@actions/core';
-const exec = require('@actions/exec');
+const { exec } = require('@actions/exec');
 
 async function run() {
   try {
