@@ -1,3 +1,4 @@
+import fs from 'fs';
 import path from 'path';
 import os from 'os';
 
@@ -14,6 +15,7 @@ async function run() {
     const flags = preview ? '--preview' : version ? `--version=${version}`: '';
     await exec(`python get-poetry.py --yes ${flags}`)
     core.addPath(path.join(os.homedir(), '.poetry', 'bin'));
+    fs.unlinkSync('get-poetry.py');
   } catch (error) {
     core.setFailed(error.message);
   }
