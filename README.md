@@ -17,20 +17,20 @@ Basic:
 steps:
 - uses: actions/checkout@master
 - uses: actions/setup-python@v1
-- uses: actions/poetry@v1.1
+- uses: actions/poetry@v1.2
 - run: poetry run my_script.py
 ```
 
 With a specific version:
 ```yaml
-- uses: actions/poetry@v1.1
+- uses: actions/poetry@v1.2
   with:
     version: 1.0.0a1
 ```
 
 Or use the preview release (not compatible with the `version` option)
 ```yaml
-- uses: actions/poetry@v1.1
+- uses: actions/poetry@v1.2
   with:
     preview: true
 ```
