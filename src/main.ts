@@ -14,7 +14,7 @@ async function run() {
     await exec('curl -O -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py');
 
     const flags = preview ? '--preview' : version ? `--version=${version}`: '';
-    await exec(`python get-poetry.py --yes ${flags}`)
+    await exec(`python get-poetry.py --yes ${flags}`);
     core.addPath(path.join(os.homedir(), '.poetry', 'bin'));
     fs.unlinkSync('get-poetry.py');
     if (!create_virtualenvs) {
