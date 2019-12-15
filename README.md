@@ -35,6 +35,14 @@ Or use the preview release (not compatible with the `version` option)
     preview: true
 ```
 
+By default, the Poetry option virtualenvs.create is set to `false`. If you would
+like Poetry to create a new virtual environment if one doesn't already exist:
+```yaml
+- uses: dschep/install-poetry-action@v1.2
+  with:
+    create_virtualenvs: true
+```
+
 # License
 
 The scripts and documentation in this project are released under the [MIT License](LICENSE)
