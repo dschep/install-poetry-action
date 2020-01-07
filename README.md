@@ -17,20 +17,20 @@ Basic:
 steps:
 - uses: actions/checkout@master
 - uses: actions/setup-python@v1
-- uses: dschep/install-poetry-action@v1.2
+- uses: dschep/install-poetry-action@v1.3
 - run: poetry run my_script.py
 ```
 
 With a specific version:
 ```yaml
-- uses: dschep/install-poetry-action@v1.2
+- uses: dschep/install-poetry-action@v1.3
   with:
     version: 1.0.0a1
 ```
 
 Or use the preview release (not compatible with the `version` option)
 ```yaml
-- uses: dschep/install-poetry-action@v1.2
+- uses: dschep/install-poetry-action@v1.3
   with:
     preview: true
 ```
@@ -38,7 +38,7 @@ Or use the preview release (not compatible with the `version` option)
 By default, the Poetry option virtualenvs.create is set to `false`. If you would
 like Poetry to create a new virtual environment if one doesn't already exist:
 ```yaml
-- uses: dschep/install-poetry-action@v1.2
+- uses: dschep/install-poetry-action@v1.3
   with:
     create_virtualenvs: true
 ```
