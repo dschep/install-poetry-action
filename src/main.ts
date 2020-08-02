@@ -11,7 +11,7 @@ async function run() {
     const preview = core.getInput('preview');
     const create_virtualenvs = core.getInput('create_virtualenvs');
 
-    await exec('curl -O -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py');
+    await exec('curl -O -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py');
 
     const flags = preview ? '--preview' : version ? `--version=${version}`: '';
     await exec(`python get-poetry.py --yes ${flags}`);
