@@ -13,7 +13,7 @@ inputs:
     description: "Create a new virtual environment if one doesn't exist"
 runs:
   using: 'node12'
-  main: 'dist/main.js'
+  main: 'lib/main.js'
 branding:
   icon: package
   color: green
