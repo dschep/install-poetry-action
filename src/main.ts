@@ -17,7 +17,9 @@ async function run() {
     await exec(`python get-poetry.py --yes ${flags}`);
 
     if (process.platform === 'win32') {
-      core.addPath(path.join('%USERPROFILE%', '.poetry', 'bin'));
+      const poetry_path = path.join('%USERPROFILE%', '.poetry', 'bin')
+      core.addPath(poetry_path);
+      core.exportVariable('PATH', `${poetry_path}:${process.env.PATH}`)
     } else {
       core.addPath(path.join(os.homedir(), '.poetry', 'bin'));
     }
