@@ -15,7 +15,12 @@ async function run() {
 
     const flags = preview ? '--preview' : version ? `--version=${version}`: '';
     await exec(`python get-poetry.py --yes ${flags}`);
-    core.addPath(path.join(os.homedir(), '.poetry', 'bin'));
+
+    if (process.platform === 'win32') {
+      core.addPath(path.join('%USERPROFILE%', '.poetry', 'bin'));
+    } else {
+      core.addPath(path.join(os.homedir(), '.poetry', 'bin'));
+    }
     fs.unlinkSync('get-poetry.py');
     if (!create_virtualenvs) {
       await exec('poetry config virtualenvs.create false');
