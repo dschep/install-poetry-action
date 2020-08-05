@@ -18,7 +18,7 @@ async function run() {
 
     core.addPath(path.join(os.homedir(), '.poetry', 'bin'));
     fs.unlinkSync('get-poetry.py');
-    exec('exec $SHELL');
+    await exec('exec $SHELL');
     if (!create_virtualenvs) {
       await exec('poetry config virtualenvs.create false');
     }
