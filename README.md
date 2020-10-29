@@ -1,5 +1,7 @@
 # Github Action to install Poetry
 
+_**THIS ACTION IS NOT MAINTAINED. USE https://github.com/snok/install-poetry INSTEAD!**_
+
 <p align="left">
   <a href="https://github.com/dschep/install-poetry-action"><img alt="GitHub Actions status" src="https://github.com/dschep/install-poetry-action/workflows/PR%20Checks/badge.svg"></a>
 </p>
