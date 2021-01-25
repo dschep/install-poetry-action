@@ -4,8 +4,13 @@ author: 'Daniel Schep'
 inputs: 
   version:
     description: 'Version of Poetry to use'
+    required: false
   preview:
     description: 'Use the preview version of Poetry'
+    required: false
+  create_virtualenvs:
+    description: "Create a new virtual environment if one doesn't exist"
+    required: false
 runs:
   using: 'node12'
   main: 'lib/main.js'
