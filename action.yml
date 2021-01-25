@@ -6,6 +6,8 @@ inputs:
     description: 'Version of Poetry to use'
   preview:
     description: 'Use the preview version of Poetry'
+  create_virtualenvs: 
+    description: 'Set to true to create a new virtualenv if one does not exist'
 runs:
   using: 'node12'
   main: 'lib/main.js'
